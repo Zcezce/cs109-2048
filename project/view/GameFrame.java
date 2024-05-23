@@ -5,7 +5,12 @@ import util.ColorMap;
 
 import javax.swing.*;
 import java.awt.*;
-
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.File;
+import java.io.IOException;
 public class GameFrame extends JFrame {
 
     private GameController controller;
@@ -16,10 +21,23 @@ public class GameFrame extends JFrame {
     private JLabel stepLabel;
     private GamePanel gamePanel;
 
+    public class BGMPlayer {
+        public static void main(String[] args) {
+            try {
+                Clip clip = AudioSystem.getClip();
+                clip.open(AudioSystem.getAudioInputStream(new File("E:\\game\\cd40_789c_4e77_e4d21eb140f2ecebf43ae2e68750111f.mp3\"")));
+                clip.loop(Clip.LOOP_CONTINUOUSLY); // 循环播放背景音乐
+                clip.start();
+            } catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
+                e.printStackTrace();
+            }
+        }
+    }
     public GameFrame(int width, int height) {
         this.setTitle("2024 CS109 Project Demo");
         this.setLayout(null);
         this.setSize(width, height);
+        new  BGMPlayer();
         ColorMap.InitialColorMap();
         gamePanel = new GamePanel((int) (this.getHeight() * 0.8));
         gamePanel.setLocation(this.getHeight() / 15, this.getWidth() / 15);

@@ -21,9 +21,9 @@ public class GridComponent extends JComponent {
         // Define colors for  values
         switch (number) {
             case 2:
-                return new Color(238, 228, 218);
+                return new  Color(100, 228, 218);
             case 4:
-                return new Color(237, 224, 200);
+                return new Color(10, 224, 200);
             case 8:
                 return new Color(242, 177, 121);
             case 16:
@@ -60,7 +60,7 @@ public class GridComponent extends JComponent {
         if (number > 0) {
             g.setColor(Color.white);
             g.fillRect(1, 1, getWidth() - 2, getHeight() - 2);
-            g.setColor(ColorMap.getColor(number));
+            g.setColor(getNumberColor(number));
             g.setFont(font);
             FontMetrics metrics = g.getFontMetrics(g.getFont());
             int textWidth = metrics.stringWidth(String.valueOf(number));

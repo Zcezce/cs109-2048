@@ -19,9 +19,10 @@ public class GameController {
     }
     public void restartGame() {
         System.out.println("Do restart game here");
+        view.resetGame();
     }
 
-    public void quitGame() {
+    public void quitGame() {System.exit(0);
     }
 
     //todo: add other methods such as loadGame, saveGame...

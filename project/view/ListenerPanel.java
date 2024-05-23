@@ -23,7 +23,7 @@ public abstract class ListenerPanel extends JPanel {
                 case KeyEvent.VK_RIGHT -> doMoveRight();
                 case KeyEvent.VK_LEFT -> doMoveLeft();
                 case KeyEvent.VK_UP -> doMoveUp();
-                case KeyEvent.VK_DOWN -> doMoveUp();
+                case KeyEvent.VK_DOWN -> doMoveDown();
                 //todo: complete other move event
             }
         }

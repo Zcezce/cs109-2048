@@ -44,6 +44,12 @@ public class GamePanel extends ListenerPanel {
         model.printNumber();//check the 4*4 numbers in game
         this.repaint();
     }
+    public void resetGame() {
+        this.model = new GridNumber(COUNT, COUNT);
+        this.steps = 0;
+        this.stepLabel.setText(String.format("Step: %d", this.steps));
+        updateGridsNumber(); // Update grid display
+    }
 
     public void updateGridsNumber() {
         for (int i = 0; i < grids.length; i++) {
@@ -70,21 +76,21 @@ public class GamePanel extends ListenerPanel {
     public void doMoveLeft() {
         System.out.println("Click VK_Left");
         this.afterMove();
-        this.model.moveRight();//要改
+        this.model.moveLeft();//要改
         this.updateGridsNumber();
     }
     @Override
     public void doMoveUp() {
         System.out.println("Click VK_Up");
         this.afterMove();
-        this.model.moveRight();//要改
+        this.model.moveUp();//要改
         this.updateGridsNumber();
     }
     @Override
     public void doMoveDown() {
         System.out.println("Click VK_Down");
         this.afterMove();
-        this.model.moveRight();//要改
+        this.model.moveDown();//要改
         this.updateGridsNumber();
     }
 
